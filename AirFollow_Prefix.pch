@@ -1,0 +1,31 @@
+//
+// Prefix header for all source files of the 'BTwitter' target in the 'BTwitter' project
+//
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+	#warning "This project uses features only available in iPhone SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
+
+#if TARGET_IPHONE_SIMULATOR
+	#import <objc/objc-runtime.h>
+#else
+	#import <objc/runtime.h>
+#endif
+
+#ifdef	_DEBUG
+	#define	DNSLog(...);	NSLog(__VA_ARGS__);
+	#define DNSLogMethod	NSLog( @"[%s] %@", class_getName([self class]), NSStringFromSelector(_cmd) );
+#else
+	#define DNSLog(...);	// NSLog(__VA_ARGS__);
+	#define DNSLogMethod	// NSLog( @"[%s] %@", class_getName([self class]), NSStringFromSelector(_cmd) );
+#endif
+
+#import "BTwitterAppDelegate.h"
+
+BTwitterAppDelegate *UIAppDelegate;
